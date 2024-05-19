@@ -14,7 +14,7 @@ const AnimatedCounter = ({ amount }: { amount: number }) => {
         - end: Target value for the animation to count up to
       */}
       <CountUp 
-      decimals={2}
+      decimals={2} 
       decimal="," 
       prefix="$" 
       end={amount} 
