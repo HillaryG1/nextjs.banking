@@ -4,9 +4,10 @@ import { sidebarLinks } from "@/constants";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import Footer from "./Footer";
 
 // Define Sidebar with destructured props
-const Sidebar = ({ user }: SiderbarProps) => {
+const Sidebar = ({ user }: SidebarProps) => {
   // Get pathname using usePathname hook
   const pathname = usePathname();
   return (
@@ -59,7 +60,7 @@ const Sidebar = ({ user }: SiderbarProps) => {
         })}
         USER
       </nav>
-      FOOTER
+      <Footer user={user} />
     </section>
   );
 };

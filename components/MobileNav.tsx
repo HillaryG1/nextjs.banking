@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Footer from "./Footer";
 // Define MobileNav with destructured props
 const MobileNav = ({ user }: MobileNavProps) => {
   const pathname = usePathname();
@@ -23,7 +24,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
       {/* Implement Shadcn Library */}
       <Sheet>
         <SheetTrigger>
-                    {/* Hamburger menu icon */}
+          {/* Hamburger menu icon */}
           <Image
             src="/icons/hamburger.svg"
             width={30}
@@ -61,15 +62,14 @@ const MobileNav = ({ user }: MobileNavProps) => {
 
                   return (
                     <SheetClose asChild key={item.route}>
-
-                    <Link
-                      href={item.route}
-                      key={item.label}
-                      className={cn("mobilenav-sheet_close w-full", {
-                        "bg-bank-gradient": isActive,
-                      })}
-                    >
-                     {/* Icon for  navigation links */}
+                      <Link
+                        href={item.route}
+                        key={item.label}
+                        className={cn("mobilenav-sheet_close w-full", {
+                          "bg-bank-gradient": isActive,
+                        })}
+                      >
+                        {/* Icon for  navigation links */}
                         <Image
                           src={item.imgURL}
                           alt={item.label}
@@ -79,23 +79,23 @@ const MobileNav = ({ user }: MobileNavProps) => {
                             "brightness-[3] invert-0": isActive,
                           })}
                         />
-                     {/* Labels for nav links */}
-                      <p
-                        className={cn("text-16 font-semibold text-black-2", {
-                          "text-white": isActive
-                        })}>
-                        {item.label}
-                      </p>
-                    </Link>
+                        {/* Labels for nav links */}
+                        <p
+                          className={cn("text-16 font-semibold text-black-2", {
+                            "text-white": isActive,
+                          })}
+                        >
+                          {item.label}
+                        </p>
+                      </Link>
                     </SheetClose>
                   );
                 })}
-
                 USER
               </nav>
             </SheetClose>
 
-            FOOTER
+            <Footer user={user} type="mobile" />
           </div>
         </SheetContent>
       </Sheet>
